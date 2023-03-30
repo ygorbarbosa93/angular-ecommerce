@@ -1,0 +1,107 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+    <form  class="contact-form" [formGroup]="formContato" (ngSubmit)="enviarFormulario()">
+        <input 
+        type="text" 
+        placeholder="Digite o seu nome"
+        formControlName="nome"
+        [class.valid]="formContato.controls['nome'].valid"
+        [class.invalid]="formContato.controls['nome'].invalid && 
+        (formContato.controls['nome'].touched || formContato.controls['nome'].dirty )"
+        />
+        <div
+            *ngIf="formContato.controls['nome'].invalid && 
+            (formContato.controls['nome'].touched || formContato.controls['nome'].dirty )"
+        >
+            <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+                Este campo precisa de no mínimo 4 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+                Este campo precisa precisa ser preenchido.
+            </small>
+        </div>
+        <input 
+        type="assunto"  
+        placeholder="Digite o assunto"
+        formControlName="assunto"
+        [class.valid]="formContato.controls['assunto'].valid"
+        [class.invalid]="formContato.controls['assunto'].invalid && 
+        (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty )"
+        />
+        <div
+            *ngIf="formContato.controls['assunto'].invalid && 
+            (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty )"
+        >
+            <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('minlength')">
+                Este campo precisa de no mínimo 10 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('required')">
+                Este campo precisa precisa ser preenchido.
+            </small>
+        </div>
+        <input 
+        type="tel" 
+        placeholder="(00) 0 0000-0000" 
+        mask="(00) 0 0000-0000"
+        formControlName="tel"
+        [class.valid]="formContato.controls['tel'].valid"
+        [class.invalid]="formContato.controls['tel'].invalid && 
+        (formContato.controls['tel'].touched || formContato.controls['tel'].dirty )"
+        />
+        <div
+            *ngIf="formContato.controls['tel'].invalid && 
+            (formContato.controls['tel'].touched || formContato.controls['tel'].dirty )"
+        >
+            <small class="error-message" *ngIf="formContato.controls['tel'].hasError('minlength')">
+                Este campo precisa de no mínimo 11 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['tel'].hasError('required')">
+                Este campo precisa precisa ser preenchido.
+            </small>
+        </div>
+        <input 
+        type="email" 
+        placeholder="Digite o seu e-mail"
+        formControlName="email"
+        [class.valid]="formContato.controls['email'].valid"
+        [class.invalid]="formContato.controls['email'].invalid && 
+        (formContato.controls['email'].touched || formContato.controls['email'].dirty )"
+        />
+        <div
+            *ngIf="formContato.controls['email'].invalid && 
+            (formContato.controls['email'].touched || formContato.controls['email'].dirty )"
+        >
+            <small class="error-message" *ngIf="formContato.controls['email'].hasError('email')">
+                Este campo precisa de um e-mail válido.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['email'].hasError('required')">
+                Este campo precisa precisa ser preenchido.
+            </small>
+        </div>
+        <textarea 
+        maxlength="300" 
+        placeholder="Digite a sua mensagem..."
+        rows="5"
+        formControlName="mensagem"
+        [class.valid]="formContato.controls['mensagem'].valid"
+        [class.invalid]="formContato.controls['mensagem'].invalid && 
+        (formContato.controls['mensagem'].touched || formContato.controls['mensagem'].dirty )"
+        ></textarea>
+        <div
+        *ngIf="formContato.controls['mensagem'].invalid && 
+        (formContato.controls['mensagem'].touched || formContato.controls['mensagem'].dirty )"
+    >
+        <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('minlength')">
+            Este campo precisa de no mínimo 20 caracteres.
+        </small>
+        <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('required')">
+            Este campo precisa precisa ser preenchido.
+        </small>
+    </div>
+        <button [disabled]="formContato.invalid">Enviar</button>
+    </form>
+    <address>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6225179755784!2d-38.41486508517856!3d-12.93196599088185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71610ba953ce7d7%3A0xf0d74cbff08086f6!2sCondom%C3%ADnio%20Paralela%20Park%20Eixo%206!5e0!3m2!1spt-BR!2sbr!4v1680175847582!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>R. Dr. Ruy Veloso da Silva - Trobogy, Salvador - BA, 41745-024</p>
+    </address>
+</section>
